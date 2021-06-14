@@ -36,10 +36,10 @@ function SignUpDetails(){
             phone_number
         };
          await Axios.post(
-            "http://localhost:5000/users/signup",
+            `http://localhost:${process.env.PORT||5000}/users/signup`,
             newUser
         );
-        const loginRes = await Axios.post("http://localhost:5000/users/login",{
+        const loginRes = await Axios.post(`http://localhost:${process.env.PORT||5000}/users/login`,{
             username,
             password
         });

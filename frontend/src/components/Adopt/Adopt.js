@@ -14,7 +14,7 @@ class AdoptPage extends Component {
         }
     }
     componentDidMount() {
-        Axios.get("http://localhost:5000/users/adopt")
+        Axios.get(`http://localhost:${process.env.PORT||5000}/users/adopt`)
         .then((response) => {
             this.setState({details: response.data});
         })

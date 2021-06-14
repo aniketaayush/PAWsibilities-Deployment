@@ -20,7 +20,7 @@ class DonateCards extends React.Component
         const dashbody = {
             uname
         }
-        Axios.post("http://localhost:5000/users/dashboard",dashbody)
+        Axios.post(`http://localhost:${process.env.PORT||5000}/users/dashboard`,dashbody)
         .then((response) => {
             this.setState({details: response.data});
         })
@@ -58,7 +58,7 @@ class DonateCards extends React.Component
                                     let deletebody={
                                         _id
                                     }
-                                     Axios.post("http://localhost:5000/users/delete",deletebody)
+                                     Axios.post(`http://localhost:${process.env.PORT||5000}/users/delete`,deletebody)
                                      .then((response) => {
                                         console.log(response);
                                         document.location.reload();

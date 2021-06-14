@@ -24,7 +24,7 @@ function LoginDetails (){
             username,
             password,
         };
-        const loginRes = await Axios.post("http://localhost:5000/users/login",loginUser);
+        const loginRes = await Axios.post(`http://localhost:${process.env.PORT||5000}/users/login`,loginUser);
         setUserData({
             token: loginRes.data.token,
             user: loginRes.data.user
