@@ -1,6 +1,7 @@
 const express =require("express");
 const mongoose =require("mongoose");
 const cors =require("cors");
+const path = require("path");
 require("dotenv").config();
 
 //set up express
@@ -10,7 +11,6 @@ app.use(cors());
 
 const PORT =process.env.PORT || 5000;
 
-app.listen(PORT,() => console.log(`THE SERVER HAS STARTED ON PORT : ${PORT}`));
 
 //set up mongoose
 mongoose.connect(process.env.MONGODB_URI, {
@@ -32,3 +32,7 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
     })
 }
+
+//Starting app
+app.listen(PORT,() => console.log(`THE SERVER HAS STARTED ON PORT : ${PORT}`));
+
