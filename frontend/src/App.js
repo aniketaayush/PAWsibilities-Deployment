@@ -17,19 +17,27 @@ function App() {
   });
 
   useEffect(() => {
+  		//setUserData({
+  			//...userData,
+  			//user: "validation-in-progress",
+  		//});
       const checkLoggedIn = async () => {
         let token = localStorage.getItem("auth-token");
         if(token === null){
           localStorage.setItem("auth-token","");
           token = "";
+         // setUserData({
+	  		//	token: undefined,
+	  			//user: undefined,
+  			//});
         }
         const tokenRes  = await Axios.post(
-          "http://localhost:5000/users/tokenisValid" , null,
+          `https://localhost:${process.env.PORT||5000}/users/tokenisValid` , null,
           { headers: { "x-auth-token": token}}
         );
         if(tokenRes.data){
           const userRes = await Axios.get(
-            "http://localhost:5000/users/",
+            `https://localhost:${process.env.PORT||5000}/users/`,
             {headers: {"x-auth-token": token} }
           );
           setUserData({
@@ -40,7 +48,9 @@ function App() {
       }
       checkLoggedIn();
   }, []);
-  if(userData.user){
+
+ 	if(userData.user)
+  	{
     return(
       <BrowserRouter>
       <UserContext.Provider value={{userData , setUserData}}>
