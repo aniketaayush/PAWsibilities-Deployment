@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck';
 import "./Adopt.css";
+import {baseUrl} from '../../config';
 class AdoptPage extends Component {
     constructor(props) {
         super(props)
@@ -14,7 +15,7 @@ class AdoptPage extends Component {
         }
     }
     componentDidMount() {
-        Axios.get(`http://localhost:${process.env.PORT||5000}/users/adopt`)
+        Axios.get(`${baseUrl}/users/adopt`)
         .then((response) => {
             this.setState({details: response.data});
         })

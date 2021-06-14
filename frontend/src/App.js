@@ -9,6 +9,7 @@ import DonatePage from './components/Donate/Donatepage';
 import UserContext from './context/UserContext';
 import AdoptPage from "./components/Adopt/Adopt";
 import DashboardPage from './components/Dashboard/Dashboard';
+import {baseUrl} from './config';
 
 function App() {
   const [userData,setUserData] =useState({
@@ -24,12 +25,12 @@ function App() {
           token = "";
         }
         const tokenRes  = await Axios.post(
-          `http://localhost:${process.env.PORT||5000}/users/tokenisValid` , null,
+          `${baseUrl}/users/tokenisValid` , null,
           { headers: { "x-auth-token": token}}
         );
         if(tokenRes.data){
           const userRes = await Axios.get(
-            `http://localhost:${process.env.PORT||5000}/users/`,
+            `${baseUrl}/users/`,
             {headers: {"x-auth-token": token} }
           );
           setUserData({

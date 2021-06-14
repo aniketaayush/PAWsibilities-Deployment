@@ -5,6 +5,7 @@ import './DonatedCards.css';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Axios from "axios";
 import { Button } from '@material-ui/core';
+import {baseUrl} from '../../config';
 class DonateCards extends React.Component
 {
     constructor(props) {
@@ -20,7 +21,7 @@ class DonateCards extends React.Component
         const dashbody = {
             uname
         }
-        Axios.post(`http://localhost:${process.env.PORT||5000}/users/dashboard`,dashbody)
+        Axios.post(`${baseUrl}/users/dashboard`,dashbody)
         .then((response) => {
             this.setState({details: response.data});
         })
@@ -58,7 +59,7 @@ class DonateCards extends React.Component
                                     let deletebody={
                                         _id
                                     }
-                                     Axios.post(`http://localhost:${process.env.PORT||5000}/users/delete`,deletebody)
+                                     Axios.post(`${baseUrl}/users/delete`,deletebody)
                                      .then((response) => {
                                         console.log(response);
                                         document.location.reload();

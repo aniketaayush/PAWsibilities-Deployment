@@ -7,6 +7,7 @@ import ErrorNotice from '../../ErrorNotice';
 import SuccessNotice from '../../SuccessNotice';
 import Axios from "axios";
 import './Review.css';
+import {baseUrl} from '../../config';
 function ReviewPage (){
 
     const [firstname, setFirst] = useState("");
@@ -30,7 +31,7 @@ function ReviewPage (){
             
         };
          await Axios.post(
-            `http://localhost:${process.env.PORT||5000}/users/review`,
+            `${baseUrl}/users/review`,
             newReview
         );
         setSucc("Thank you for the review !")

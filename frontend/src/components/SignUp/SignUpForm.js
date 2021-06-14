@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Axios from "axios";
 import ErrorNotice from '../../ErrorNotice';
+import {baseUrl} from '../../config';
 function SignUpDetails(){
 
     const [username, setUsername] = useState("");
@@ -36,10 +37,10 @@ function SignUpDetails(){
             phone_number
         };
          await Axios.post(
-            `http://localhost:${process.env.PORT||5000}/users/signup`,
+            `${baseUrl}/users/signup`,
             newUser
         );
-        const loginRes = await Axios.post(`http://localhost:${process.env.PORT||5000}/users/login`,{
+        const loginRes = await Axios.post(`${baseUrl}/users/login`,{
             username,
             password
         });

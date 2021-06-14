@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Axios from "axios";
 import ErrorNotice from '../../ErrorNotice';
+import {baseUrl} from '../../config';
 function LoginDetails (){
 
     const [username, setUsername] = useState("");
@@ -24,7 +25,7 @@ function LoginDetails (){
             username,
             password,
         };
-        const loginRes = await Axios.post(`http://localhost:${process.env.PORT||5000}/users/login`,loginUser);
+        const loginRes = await Axios.post(`${baseUrl}/users/login`,loginUser);
         setUserData({
             token: loginRes.data.token,
             user: loginRes.data.user

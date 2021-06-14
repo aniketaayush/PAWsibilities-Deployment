@@ -8,6 +8,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Axios from "axios";
 import ErrorNotice from '../../ErrorNotice';
 import "./DonateForm.css";
+import {baseUrl} from '../../config';
 
 function DonationDetails(){
 
@@ -42,7 +43,7 @@ function DonationDetails(){
             
         };
          await Axios.post(
-            `http://localhost:${process.env.PORT||5000}/users/donate`,
+            `${baseUrl}/users/donate`,
             newDonate
         );
         history.push("/dashboard");
