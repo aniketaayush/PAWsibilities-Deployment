@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "xbuild": "cd frontend && npm run build",
+    "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install --force",
     "postinstall": "npm run install-frontend",
     "start": "node server.js",
