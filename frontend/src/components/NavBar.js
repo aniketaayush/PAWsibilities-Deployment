@@ -47,7 +47,7 @@ function NavBar() {
     else
              return(
                 <Navbar bg="dark" variant="dark" id="Navigation">
-                <Navbar.Brand href="/login">
+                <Navbar.Brand href="/">
                     <img
                     alt=""
                     src= "/logo.svg"

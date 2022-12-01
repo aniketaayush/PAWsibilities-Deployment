@@ -8,6 +8,7 @@
     flex-wrap: wrap;
     margin-bottom: 4rem;
     align-content: flex-start;
+    min-height: 350px;
 }
 
 .c1{
@@ -17,4 +18,5 @@
     width:20rem;
     margin-bottom: 3rem;
     align-content: flex-start;
+    min-height: 60vh;
 }

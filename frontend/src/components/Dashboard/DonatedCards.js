@@ -34,8 +34,8 @@ class DonateCards extends React.Component
     render()
     { const { details } = this.state
         return(
-            <CardDeck>
-            <div className="cards-container">
+            <CardDeck>  
+            <div className="dashboard-container">
                 {
                      details.length ?
                      details.map((detail,index) => 

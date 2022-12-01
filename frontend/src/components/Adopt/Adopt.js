@@ -32,7 +32,7 @@ class AdoptPage extends Component {
                 <div>
                 <Navbar/>
                 <CardDeck>
-                <div className="cards-container">
+                <div className="adopt-card-container">
                     {
                         details.length ?
                         details.map((detail,index) => 

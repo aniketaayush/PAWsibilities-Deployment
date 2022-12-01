@@ -10,6 +10,7 @@ import UserContext from './context/UserContext';
 import AdoptPage from "./components/Adopt/Adopt";
 import DashboardPage from './components/Dashboard/Dashboard';
 import {baseUrl} from './config';
+import Loader from './components/Loader/Loader';
 
 function App() {
   const [userData,setUserData] =useState({
@@ -17,8 +18,11 @@ function App() {
     user:undefined
   });
 
+  const [loading,setLoading] = useState(false)
+
   useEffect(() => {
       const checkLoggedIn = async () => {
+        setLoading(true);
         let token = localStorage.getItem("auth-token");
         if(token === null){
           localStorage.setItem("auth-token","");
@@ -38,6 +42,7 @@ function App() {
             user: userRes.data
           });
         }
+        setLoading(false)
       }
       checkLoggedIn();
   }, []);
@@ -46,6 +51,7 @@ function App() {
   	{
     return(
       <BrowserRouter>
+      <Loader loading={loading} />
       <UserContext.Provider value={{userData , setUserData}}>
       <div className="App">
         <Switch>
@@ -65,6 +71,7 @@ function App() {
     else {
       return(
         <BrowserRouter>
+        <Loader loading={loading} />
         <UserContext.Provider value={{userData , setUserData}}>
         <div className="App">
           <Switch>
